@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./buisnesses.css" />
+    <title>Buisness</title>
+  </head>
+
+  <body class="page">
+    <div class="game">
+      <!-- Мэйн меню -->
+      <div class="current-tab">
+        <div class="main-game">
+          <div class="info">
+            <div class="balance">
+              <h3 class="balance__text info__element">Баланс</h3>
+              <h3 class="balance__sum info__element">
+                <span class="balance__number">0</span>$
+              </h3>
+            </div>
+            <div class="job">
+              <h3 class="job__text info__element">Работа</h3>
+              <h3 class="job__title info__element">Уборщик</h3>
+            </div>
+            <div class="salary">
+              <h3 class="salary__text info__element">Зарплата</h3>
+              <h3 class="salary__sum info__element">
+                <span class="salary__number">1</span>$/клик
+              </h3>
+            </div>
+            <div class="level__exp">
+              <p class="info__level-points">
+                Опыт: <span class="points_current">0</span> /
+                <span class="points_needed">5</span>
+              </p>
+            </div>
+          </div>
+          <div class="touch-zone"></div>
+          <button class="button-work">Работать</button>
+        </div>
+
+        <!-- Бизнесс -->
+
+        <div class="buisness">
+          <h1 class="buisness__title">Бизнесы</h1>
+          <div class="buisness__dashboard">
+            <div class="buisness__income">
+              <h3 class="buisness__income-title">Доход в секунду</h3>
+              <h2 class="buisness__income-number">0</h2>
+            </div>
+            <button class="buisness__button-new">Создать новый бизнес</button>
+          </div>
+          <div class="buisness__main"></div>
+        </div>
+
+        <!-- Попап выбора нового бизнеса -->
+        <div class="popup popup-buisness popup-buisness-new">
+          <h1 class="popup-buisness-new__title">Выберите бизнесс</h1>
+          <div class="popup-buisness-new__list">
+            <div id="shop" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Магазин</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">1000</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">
+                  Магазин является пассивным бизнесом. Улучшения повышают доход
+                  в час.
+                </p>
+              </div>
+            </div>
+            <div id="barber" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Барбершоп</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">1400</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">
+                  Барбершоп является активным бизнесом. Вам предстоит вручную
+                  приглашать клиентов, за что через время те будут платить вам
+                  деньги. Улучшения: снижение времени стрижки, увеличение
+                  вместимости, стоимость стрижек.
+                </p>
+              </div>
+            </div>
+            <div id="workshop" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Цех</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">15</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="pool" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Бассейн</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">16</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="auto" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Автодиллер</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">17</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="delivery" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Грузоперевозки</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">18</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="clinic" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Клиника</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">19</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="hotel" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Гостиница</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">20</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+            <div id="bank" class="popup-buisness-new__buisness">
+              <img
+                src="./images/shop.png"
+                alt=""
+                class="popup-buisness-new__img"
+              />
+              <h2 class="popup-buisness-new__element-title">Банк</h2>
+              <div class="popup-buisness-new__price-box">
+                <h2 class="popup-buisness-new__price">21</h2>
+                <h2 class="popup-buisness-new__price-sign">$</h2>
+                <p class="popup-buisness-new__about">///</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Попап информации о выборе бизнеса -->
+
+        <div class="popup popup-buisness popup-buisness-create">
+          <img src="" alt="" class="popup-buisness-create__image" />
+          <h2 class="popup-buisness-create__title"></h2>
+          <div class="popup-buisness-create__info-box">
+            <p class="popup-buisness-create__info"></p>
+          </div>
+          <h2 class="popup-buisness-create__price"></h2>
+          <button class="popup-buisness-create__confirm">Создать</button>
+        </div>
+
+        <!-- Попап улучшения бизнесса -->
+        <div class="popup popup-buisness popup-buisness-upgrade">
+          <div class="popup-buisness-upgrade-box">
+            <img src="" alt="" class="popup-buisness-upgrade__image" />
+            <h2 class="popup-buisness-upgrade__title"></h2>
+            <div class="popup-buisness-upgrade__info-box">
+              <p class="popup-buisness-upgrade__info"></p>
+            </div>
+            <h2 class="popup-buisness-upgrade__subtitle">Доход</h2>
+            <div class="popup-buisness-upgrade__upgrade-box">
+              <p class="popup-buisness-upgrade__current-income"></p>
+              <img
+                src="./images/arrow_next.png"
+                alt=""
+                class="popup-buisness-upgrade__arrow"
+              />
+              <p class="popup-buisness-upgrade__next-income"></p>
+            </div>
+            <h2 class="popup-buisness-upgrade__upgrade-time">
+              Время улучшения:
+            </h2>
+            <button class="popup-buisness-upgrade__confirm">Улучшить</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Кнопка "назад" -->
+
+      <!-- Меню -->
+
+      <div class="menu">
+        <button class="menu__button"></button>
+        <button id="buisness" class="menu__button menu__buisness"></button>
+        <button
+          id="main-game"
+          class="menu__button menu__current menu__main"
+        ></button>
+        <button class="menu__button"></button>
+        <button class="menu__button"></button>
+      </div>
+    </div>
+
+    <!-- Шаблоны -->
+    <template class="buisness-card">
+      <div id="2" class="buisness__card">
+        <div class="buisness__card-overlay"></div>
+        <img src="" alt="" class="buisness__img" />
+        <div class="buisness__card-info">
+          <h3 class="buisness__card-title"></h3>
+          <h2 class="buisness__card-upgrade">Ремонт:</h2>
+          <h2 class="buisness__card-lvl"></h2>
+          <h2 class="buisness__card-income"></h2>
+        </div>
+      </div>
+    </template>
+
+    <!-- Скрипты -->
+    <script type="module" src="./js.js"></script>
+    <script type="module" src="./menu.js"></script>
+    <script type="module" src="./buisnessesInfo.js"></script>
+    <script type="module" src="./buisness.js"></script>
+    <script type="module" src="./balance.js"></script>
+  </body>
+</html>
