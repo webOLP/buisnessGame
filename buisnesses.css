@@ -93,7 +93,7 @@
     height: 90%;
     border-radius: 25px;
     display: grid;
-    grid-template-columns: repeat(2,minmax(150px,45%));
+    grid-template-columns: repeat(2,minmax(150px,450px));
     gap: 15px;
     overflow-y: scroll;
     align-items: center;

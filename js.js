@@ -49,6 +49,7 @@ workButton.addEventListener('click',() => {
         workButton.style.height = `${workButton.clientWidth/3}px`;
         setTimeout(() => {workButton.style.backgroundImage = 'url(./images/button_off.png)'},400);
         touchZone.addEventListener('click',activateClicks)
+        touchZone.textContent = `${document.documentElement.clientHeight} выс X ${document.documentElement.clientWidth} шир`
         return;
     }
     workButton.style.backgroundImage = '';

@@ -4,9 +4,9 @@ let currentTab = document.querySelector('.menu__main');
 const currentTabClass = 'menu__current';
 const popups = document.querySelectorAll('.popup');
 
-function returnBack() {
+// function returnBack() {
     
-}
+// }
 
 function changeTab(evt){
     currentTab.classList.remove(`${currentTabClass}`);
