@@ -20,6 +20,7 @@
     height: 10%;
     display: flex;
     justify-content: space-between;
+    min-height: 100px;  
 }
 
 .buisness__income {
@@ -92,7 +93,7 @@
     height: 90%;
     border-radius: 25px;
     display: grid;
-    grid-template-columns: repeat(2,45%);
+    grid-template-columns: repeat(2,minmax(150px,45%));
     gap: 15px;
     overflow-y: scroll;
     align-items: center;
@@ -108,6 +109,7 @@
     background-repeat: no-repeat;
     position: relative;
     margin: 20px 0;
+   
 }
 
 .popup-buisness-new__img {
@@ -212,7 +214,7 @@
     height: 18%;
     margin-bottom: 15px;
     position: relative;
-    
+    min-height: 160px;
 }
 
 .buisness__card-overlay {

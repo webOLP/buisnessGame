@@ -5,15 +5,21 @@ const expCurrent = document.querySelector('.points_current');
 const expNeeded = document.querySelector('.points_needed');
 const workButton = document.querySelector('.button-work');
 const touchZone = document.querySelector('.touch-zone');
+const info = document.querySelector('.info');
+const menuButtons = document.querySelectorAll('.menu__button');
 //
 let expCount = 0;
 let lvlCurrent = 0;
 const jobList = ['Дворник','Кассир','Менеджер','Директор','Гл.Директор','Остановись!','Жаль мышь','С тебя шава']
 
 // Задаем тач зоне высоту
-touchZone.style.height = `${window.screen.height - 1}px`
-
-
+touchZone.style.height = `calc(100% - ${workButton.clientHeight + info.clientHeight}px)`
+console.log(`${workButton.clientHeight} + ${info.clientHeight}`)
+// Задаем кнопкам меню размер
+menuButtons.forEach(button => {
+    button.style.height = `${button.clientWidth}px`;
+    console.log(button);
+});
 
 function activateClicks(){
     expCount += 1;

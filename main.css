@@ -35,8 +35,9 @@
     justify-content: space-between;
     color: white;
     font-size: 43px;
-    background-color: #808080;
+    background-color: #4a4a4a;
     position: relative;
+    border-radius: 25px;
 }
 
 .info > * {
@@ -74,11 +75,14 @@
 
 .button-work {
     height: 83px;
-    width: 100%;
+    width: 50%;
     background-color: #2A8C34;
     border: 0;
     font-size: 28px;
     color: white;
+    align-self: center;
+    border-radius: 25px;
+    margin-bottom: 15px;
 }
 
 .button-work_active {
@@ -94,14 +98,16 @@
     align-items: center;
     position: absolute;
     bottom: 0;
+    border-radius: 10px;
 }
 
 .menu__button {
-    width: 57px;
-    height: 57px;
     border-radius: 100%;
     border: 0;
     background-color: #0C0202;
+    width: 15%;
+    max-width: 50px;
+    padding: 0; 
 }
 
 .menu__current {
