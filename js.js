@@ -14,11 +14,10 @@ const jobList = ['Дворник','Кассир','Менеджер','Дирек�
 
 // Задаем тач зоне высоту
 touchZone.style.height = `calc(100% - ${workButton.clientHeight + info.clientHeight}px)`
-console.log(`${workButton.clientHeight} + ${info.clientHeight}`)
+
 // Задаем кнопкам меню размер
 menuButtons.forEach(button => {
     button.style.height = `${button.clientWidth}px`;
-    console.log(button);
 });
 
 function activateClicks(){
@@ -45,12 +44,14 @@ function upgradeLvl() {
 
 workButton.addEventListener('click',() => {
     workButton.classList.toggle('button-work_active');
-    console.log(workButton.textContent);
     if(workButton.textContent === 'Работать') {
-        workButton.textContent = 'Стоп';
+        workButton.textContent = '';
+        workButton.style.height = `${workButton.clientWidth/3}px`;
+        setTimeout(() => {workButton.style.backgroundImage = 'url(./images/button_off.png)'},400);
         touchZone.addEventListener('click',activateClicks)
         return;
     }
-    workButton.textContent = 'Работать';
+    workButton.style.backgroundImage = '';
+    setTimeout(() => {workButton.textContent = 'Работать'},400);
     touchZone.removeEventListener('click',activateClicks);
 })
