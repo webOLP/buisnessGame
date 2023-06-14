@@ -60,7 +60,7 @@
 
 .level__exp {
     position: absolute;
-    bottom: -40px;
+    bottom: -45px;
     font-size: 30px;
     align-self: center;
     display: flex;
@@ -97,7 +97,7 @@
 
 .button-work_active {
     background-color: #EC2828;
-    transform: translateX(45vw);
+    transform: translateX(40vw);
     margin: 0 0 15px;
     width: 15%;
     border-radius: 100%;
@@ -116,23 +116,19 @@
     position: absolute;
     bottom: 0;
     border-radius: 10px;
-
+    background-color: #4a4a4a;
 }
 
 .menu__button {
-    border-radius: 100%;
     border: 0;
-    background-color: #0C0202;
     width: 15%;
     max-width: 50px;
     padding: 0; 
+    background: none;
 }
 
-.menu__current {
-    background-color: #2137FA;
-}
 
-.return-button{
+/* .return-button{
     display: none;
     background-image: url(./images/return.png);
     width: 45px;
@@ -141,4 +137,29 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    position: relative;
+} */
+
+/* .menu__current::before {
+    content: '';
+    position: absolute;
+    top:50%;
+    left: 50%;  
+    box-shadow: 0 0 25px 13px rgb(24, 156, 37);
+    width: 1px; 
+    height: 1px;
+    
+} */
+
+.menu__current {    
+    border:  3px #343434 solid;
+    box-sizing: content-box;
+    background-color: rgba(42, 140, 52, 0.2);
+    border-radius: 100%;
+}
+
+
+.menu__img { 
+    width: 80%;
+    opacity: 0.9;
 }
