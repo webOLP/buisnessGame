@@ -11,6 +11,7 @@
     height: 100vh;
     position: relative;
     background-color: #343434;
+    box-sizing: border-box;
 }
 
 .current-tab {
@@ -75,10 +76,8 @@
     margin: 0;
 }
 
-
-
 .button-work {
-    height: 83px;
+    height: 15vw;
     width: 45%;
     background-color: #2A8C34;
     border: 0;
@@ -103,6 +102,7 @@
     border-radius: 100%;
     max-height: 10vh;
     max-width: 10vh;
+    transition: all ease-in-out 0.5s;
 }
 
 .menu {
@@ -164,13 +164,21 @@
     opacity: 0.9;
 }
 
-@media screen and (max-width:550px) {
+
+
+@media screen and (max-width:450px) {
     .info {
         font-size: 25px;
         height: 155px;
     }
 
     .level__exp {
+        bottom: -35px;
         font-size: 20px;
     } 
+
+    .button-work {
+        font-size: 20px;
+    }
 }
+

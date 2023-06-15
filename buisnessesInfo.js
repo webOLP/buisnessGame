@@ -10,10 +10,10 @@ export const buisnesses = {
         startUpgradePrice: 1500,
         startIncome : 3,
         startPrice : 1000,
-        infoAbout : ' Магазин является пассивным бизнесом. Улучшения повышают доходв час.',
-        lastUpgradePrice : 1500,
+        infoAbout : ' Магазин является пассивным бизнесом. Улучшения повышают доход в час.',
+        lastUpgradePrice : 5,
         currentIncome : 3,
-        imageLink: './images/shop.png',
+        made: false,
     },
     barber : {
         name : 'Барбершоп',
@@ -29,7 +29,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     workshop : {
         name : 'Цех',
@@ -45,7 +45,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     pool : {
         name : 'Бассейн',
@@ -61,7 +61,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     auto : {
         name : 'Автодиллер',
@@ -77,7 +77,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     delivery : {
         name : 'Грузоперевозки',
@@ -93,7 +93,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     clinic : {
         name : 'Клиника',
@@ -108,6 +108,8 @@ export const buisnesses = {
         startPrice : 9000,
         infoAbout : '',
         lastUpgradePrice : 1500,
+        currentIncome : 3,
+        made: false,
     },
     hotel : {
         name : 'Отель',
@@ -123,7 +125,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
     bank : {
         name : 'Банк',
@@ -139,7 +141,7 @@ export const buisnesses = {
         infoAbout : '',
         lastUpgradePrice : 1500,
         currentIncome : 3,
-        imageLink: '',
+        made: false,
     },
 
 }

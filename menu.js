@@ -12,7 +12,7 @@ function changeTab(evt){
     currentTab.classList.remove(`${currentTabClass}`);
     document.querySelector(`.${currentTab.id}`).style.display = 'none';
     popups.forEach(popup => {
-        popup.style.display = 'none';
+        popup.classList.remove('popup-buisness_opened');
     })
     evt.currentTarget.classList.add(`${currentTabClass}`);
     currentTab = evt.currentTarget;
