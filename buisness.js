@@ -10,45 +10,44 @@ let activePopup = '';
 //Buisnesses Popup
 const newBuisnessPopup = document.querySelector('.popup-buisness-new');
 
-
-
-//BuyCard Popup
-const cardPopup = document.querySelector('.popup-buisness-create');
-const cardPopupTitleSelector = '.popup-buisness-create__title';
-const cardPopupPriceSelector = '.popup-buisness-create__price';
-const cardPopupImageSelector = '.popup-buisness-create__image';
-const cardPopupInfoSelector = '.popup-buisness-create__info';
-const cardPopupConfirmButton = '.popup-buisness-create__confirm';
-const returnButton = document.querySelector('.return-button');
-
-//UpgradeCard Popup
+//Template Upgrade Buisness
+const cardUpgradeTemplate = '.upgrade-buisness';
 const cardUpgradePopup = document.querySelector('.popup-buisness-upgrade');
-const cardUpgradePopupTitleSelector = '.popup-buisness-upgrade__title';
-const cardUpgradePopupCurIncomeSelector = '.popup-buisness-upgrade__current-income';
-const cardUpgradePopupNextIncomeSelector = '.popup-buisness-upgrade__next-income';
-const cardUpgradePopupImageSelector = '.popup-buisness-upgrade__image';
-const cardUpgradePopupTimeSelector = '.popup-buisness-upgrade__upgrade-time';
-const cardUpgradePopupPriceSelector = '.popup-buisness-upgrade__price';
-const cardUpgradePopupConfirmButton = '.popup-buisness-upgrade__confirm';
-const cardUpgradePopupInfoSelector = '.popup-buisness-upgrade__info';
+const cardUpgradeTitleSelector = '.popup-buisness-upgrade__title';
+const cardUpgradeCurIncomeSelector = '.popup-buisness-upgrade__current-income';
+const cardUpgradeNextIncomeSelector = '.popup-buisness-upgrade__next-income';
+const cardUpgradeImageSelector = '.popup-buisness-upgrade__image';
+const cardUpgradeTimeSelector = '.popup-buisness-upgrade__upgrade-time';
+const cardUpgradePriceSelector = '.popup-buisness-upgrade__price';
+const cardUpgradeConfirmButton = '.popup-buisness-upgrade__confirm';
+const cardUpgradeInfoSelector = '.popup-buisness-upgrade__info';
 
 //Template Listed Buisnesses
-const newBuisnessTemplate = '.new-buisness-list';
-const newBuisnessTemplateBox = '.popup-buisness-new__buisness'
-const newBuisnessTemplateImage= '.popup-buisness-new__img';
-const newBuisnessTemplateTitle = '.popup-buisness-new__element-title';
-const newBuisnessTemplatePrice = '.popup-buisness-new__price';
-const newBuisnessTemplateAbout = '.popup-buisness-new__about';
+const newBuisnessItemTemplate = '.new-buisness-list';
+const newBuisnessItemTemplateBox = '.popup-buisness-new__buisness'
+const newBuisnessItemTemplateImage= '.popup-buisness-new__img';
+const newBuisnessItemTemplateTitle = '.popup-buisness-new__element-title';
+const newBuisnessItemTemplatePrice = '.popup-buisness-new__price';
+const newBuisnessItemTemplateAbout = '.popup-buisness-new__about';
 //Suplies
 const newBuisnessesList = document.querySelector('.popup-buisness-new__list');
 
 
+//Template Create New Buiness
+const createBuisnessTemplate = '.new-buisness';
+const createBuisnessPopup = document.querySelector('.popup-buisness-create');
+const createBuisnessTitleSelector = '.popup-buisness-create__title';
+const createBuisnessPriceSelector = '.popup-buisness-create__price';
+const createBuisnessImageSelector = '.popup-buisness-create__image';
+const createBuisnessInfoSelector = '.popup-buisness-create__info';
+const createBuisnessConfirmButton = '.popup-buisness-create__confirm';
 
 //Template Created Buisness
 const buisnessTemplate = '.buisness-card';
 const buisnessTemplateCardSelector = '.buisness__card';
 const buisnessTemplateImgLinkSelector = '.buisness__card-img';
 const buisnessTemplateTitleSelector = '.buisness__card-title';
+const buisnessTemplateUpTimeSelector = '.buisness__card-upgrade'
 const buisnessTemplateIncomeSelector = '.buisness__card-income';
 const buisnessTemplateLvlSelector = '.buisness__card-lvl';
 const buisnessTemplateOverlaySelector = '.buisness__card-overlay';
@@ -57,7 +56,7 @@ const buisnessTemplateOverlaySelector = '.buisness__card-overlay';
 function refreshIncome() {
     let countIncome = 0;
     buisnessesList.querySelectorAll(`${buisnessTemplateIncomeSelector}`).forEach(income => {
-        countIncome += Number(income.textContent.slice(0,-4));
+        countIncome += Number(income.textContent.slice(0,-3));
     });
     buisnessIncomeNumber.textContent = `${countIncome}$`;
     buisnessIncomeNumber.style.display = 'none';
@@ -65,26 +64,25 @@ function refreshIncome() {
 }
 
 function openBuisnessPopup() {
-    // newBuisnessPopup.style.display = 'flex';
     activePopup = newBuisnessPopup;
     newBuisnessPopup.classList.add('popup-buisness_opened');
     newBuisnessesList.innerHTML = '';
     for(let buisness in buisnesses) {
-        const templateListedBuisnesses = document.querySelector(`${newBuisnessTemplate}`).content.cloneNode(true);
-        
-        templateListedBuisnesses.querySelector(`${newBuisnessTemplateImage}`).src = `./images/${buisness}.png `;
-       
-        templateListedBuisnesses.querySelector(`${newBuisnessTemplateAbout}`).textContent = buisnesses[buisness].infoAbout ;
-        templateListedBuisnesses.querySelector(`${newBuisnessTemplateBox}`).id = buisness;
-        if(!buisnesses[buisness].made) {
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplateBox}`)
+        const templateListedBuisnesses = document.querySelector(`${newBuisnessItemTemplate}`).content.cloneNode(true);
+        templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateImage}`).src = `./images/${buisness}.png `;
+        templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateAbout}`).textContent = buisnesses[buisness].infoAbout ;
+        templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateBox}`).id = buisness;
+        templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateTitle}`).textContent = buisnesses[buisness].name;
+        templateListedBuisnesses.querySelector(`${newBuisnessItemTemplatePrice}`).textContent = `${buisnesses[buisness].startPrice}$` ;
+        if((!buisnesses[buisness].made && (buisnesses[buisness].startPrice <= balance.textContent))) {
+            templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateBox}`)
                 .addEventListener('click', (evt) => createNewBuisness(evt),{once: true});
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplateTitle}`).textContent = buisnesses[buisness].name;
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplatePrice}`).textContent = `${buisnesses[buisness].startPrice}$` ;
         } else {
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplateTitle}`).textContent = 'Куплено';
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplatePrice}`).textContent = '-';
-            templateListedBuisnesses.querySelector(`${newBuisnessTemplateBox}`).style.opacity = '0.6';
+            if(buisnesses[buisness].made) {
+                templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateTitle}`).textContent = 'Куплено';
+                templateListedBuisnesses.querySelector(`${newBuisnessItemTemplatePrice}`).textContent = '-';
+            }
+            templateListedBuisnesses.querySelector(`${newBuisnessItemTemplateBox}`).style.opacity = '0.6';
         }
         newBuisnessesList.append(templateListedBuisnesses);
     }
@@ -94,63 +92,90 @@ function openPopupUpgrade(id) {
     activePopup = cardUpgradePopup;
     cardUpgradePopup.classList.add('popup-buisness_opened');
     const currentBuisness = buisnesses[id];
-    console.log(id)
+    cardUpgradePopup.innerHTML = '';
+    const templateCardUpgrade = document.querySelector(`${cardUpgradeTemplate}`).content.cloneNode(true);
     cardUpgradePopup.addEventListener('click', (evt) => {
         if(evt.target == cardUpgradePopup) {
-            cardUpgradePopup.querySelector(`${cardUpgradePopupConfirmButton}`).removeEventListener('click', () => startUpgradeBuisness(id),{once:true})
-            activePopup.classList.remove('popup-buisness_opened');
-            console.log('123')
+            cardUpgradePopup.classList.remove('popup-buisness_opened');
         }
     },{once:true})
-    cardUpgradePopup.querySelector(`${cardUpgradePopupTitleSelector}`).textContent = currentBuisness.name;
-    cardUpgradePopup.querySelector(`${cardUpgradePopupCurIncomeSelector}`).textContent = `${currentBuisness.currentIncome}$`
-    cardUpgradePopup.querySelector(`${cardUpgradePopupNextIncomeSelector}`).textContent = `${Math.round(currentBuisness.currentIncome * currentBuisness.scaleIncome, -1)}$`
-    cardUpgradePopup.querySelector(`${cardUpgradePopupInfoSelector}`).textContent = currentBuisness.infoAbout
-    cardUpgradePopup.querySelector(`${cardUpgradePopupImageSelector}`).src = `./images/${id}.png `;;
-    cardUpgradePopup.querySelector(`${cardUpgradePopupTimeSelector}`)
-    .textContent = 'Время улучшения: ' + Math.round(currentBuisness.upgradeTime/60) + ' час.'+ ' ' 
-    + Math.round(currentBuisness.upgradeTime%60) + ' мин.';
-    
-    cardUpgradePopup.querySelector(`${cardUpgradePopupPriceSelector}`).textContent = `Цена: ${currentBuisness.lastUpgradePrice}$`;
-    if(Number(balance.textContent) < currentBuisness.lastUpgradePrice) {
-        console.log(currentBuisness.lastUpgradePrice);
-        cardUpgradePopup.querySelector(`${cardUpgradePopupConfirmButton}`).setAttribute('disabled','disabled');
+    templateCardUpgrade.querySelector(`${cardUpgradeTitleSelector}`).textContent = currentBuisness.name;
+    templateCardUpgrade.querySelector(`${cardUpgradeCurIncomeSelector}`).textContent = `${currentBuisness.income}$`
+    templateCardUpgrade.querySelector(`${cardUpgradeNextIncomeSelector}`).textContent = `${Math.round(currentBuisness.income * currentBuisness.scaleIncome)}$`
+    templateCardUpgrade.querySelector(`${cardUpgradeInfoSelector}`).textContent = currentBuisness.infoAbout
+    templateCardUpgrade.querySelector(`${cardUpgradeImageSelector}`).src = `./images/${id}.png `;
+    templateCardUpgrade.querySelector(`${cardUpgradeTimeSelector}`)
+    .textContent = 'Время улучшения: ' + Math.round(currentBuisness.upgradeTime/60) + ' ч'+ ' ' 
+    + Math.round(currentBuisness.upgradeTime%60) + ' м';
+    templateCardUpgrade.querySelector(`${cardUpgradePriceSelector}`).textContent = `Цена: 
+    ${Math.round(currentBuisness.upgradePrice * Math.pow(currentBuisness.scalePrice,currentBuisness.lvl - 1))}$`;
+    if(Number(balance.textContent) < (currentBuisness.upgradePrice * Math.pow(currentBuisness.scalePrice,currentBuisness.lvl - 1))) {
+        templateCardUpgrade.querySelector(`${cardUpgradeConfirmButton}`).setAttribute('disabled','disabled');
     } else {
-        cardUpgradePopup.querySelector(`${cardUpgradePopupConfirmButton}`).removeAttribute('disabled');
-        cardUpgradePopup.querySelector(`${cardUpgradePopupConfirmButton}`).addEventListener('click', () => startUpgradeBuisness(id),{once:true})
+        templateCardUpgrade.querySelector(`${cardUpgradeConfirmButton}`).removeAttribute('disabled');
+        templateCardUpgrade.querySelector(`${cardUpgradeConfirmButton}`).addEventListener('click', () => startUpgradeBuisness(id),{once:true})
     }
+    cardUpgradePopup.append(templateCardUpgrade);
 }
 
 function startUpgradeBuisness(id){
-    buisnesses[id].lastUpgradePrice = Math.round(buisnesses[id].lastUpgradePrice * buisnesses[id].scalePrice);
-    console.log(buisnesses[id].lastUpgradePrice);
+    balance.textContent = balance.textContent - (buisnesses[id].upgradePrice * Math.pow(buisnesses[id].scalePrice,buisnesses[id].lvl - 1));
+    buisnesses[id].lvl += 1;
+    const card = buisnessesList.querySelector(`#${id}`);
+    const upgradeCountdown = card.querySelector(`${buisnessTemplateUpTimeSelector}`);
+    const overlay = card.querySelector(`${buisnessTemplateOverlaySelector}`);
+    overlay.style.display = 'none';
+    let passedTime = 0;
+    upgradeCountdown.textContent = 'Апгрейд: ' + Math.round((buisnesses[id].upgradeTime)/60)+ ' ч '+ 
+    + Math.round((buisnesses[id].upgradeTime)%60) + ' м';
+    upgradeCountdown.style.display = 'inline';
+    const x = setInterval(() => {
+        upgradeCountdown.textContent = 'Апгрейд: ' + Math.round((buisnesses[id].upgradeTime - passedTime)/60)+ ' ч '+ 
+        + Math.round((buisnesses[id].upgradeTime - 1 - passedTime)%60) + ' м';
+        passedTime += 1;
+        if ((buisnesses[id].upgradeTime - passedTime) === -1){
+            clearInterval(x);
+            upgradeCountdown.style.display = 'none';
+            overlay.style.display = 'block';
+            buisnesses[id].upgradeTime = Math.round(buisnesses[id].upgradeTime * buisnesses[id].timeScale);
+            buisnesses[id].income = Math.round(buisnesses[id].income*buisnesses[id].scaleIncome)
+            card.querySelector(`${buisnessTemplateLvlSelector}`).textContent = 'Lvl. ' + buisnesses[id].lvl;
+            card.querySelector(`${buisnessTemplateIncomeSelector}`).textContent = `${buisnesses[id].income}$/с`;
+            refreshIncome();
+        }
+    },1000)
     activePopup.classList.remove('popup-buisness_opened');
-
+    
 }
 
 function createNewBuisness(evt) {
     activePopup.classList.remove('popup-buisness_opened');
-    activePopup = cardPopup;
-    let clickedNewBuisnessId = evt.currentTarget.id;
-    cardPopup.classList.add('popup-buisness_opened');
-    cardPopup.querySelector(`${cardPopupTitleSelector}`).textContent = buisnesses[clickedNewBuisnessId].name;
-    cardPopup.querySelector(`${cardPopupImageSelector}`).src = `./images/${clickedNewBuisnessId}.png `;
-    cardPopup.querySelector(`${cardPopupPriceSelector}`).textContent = buisnesses[clickedNewBuisnessId].startPrice + '$';
-    cardPopup.querySelector(`${cardPopupInfoSelector}`).textContent = buisnesses[clickedNewBuisnessId].infoAbout;
-    cardPopup.querySelector(`${cardPopupConfirmButton}`).addEventListener('click', () => creatingBuisness(clickedNewBuisnessId),{once:true});
+    activePopup = createBuisnessPopup;
+    createBuisnessPopup.innerHTML = '';
+    let id = evt.currentTarget.id;
+    const templateNewBuisness = document.querySelector(`${createBuisnessTemplate}`).content.cloneNode(true);
+    createBuisnessPopup.classList.add('popup-buisness_opened');
+    templateNewBuisness.querySelector(`${createBuisnessTitleSelector}`).textContent = buisnesses[id].name;
+    templateNewBuisness.querySelector(`${createBuisnessImageSelector}`).src = `./images/${id}.png `;
+    templateNewBuisness.querySelector(`${createBuisnessPriceSelector}`).textContent = buisnesses[id].startPrice + '$';
+    templateNewBuisness.querySelector(`${createBuisnessInfoSelector}`).textContent = buisnesses[id].infoAbout;
+    const templateNewBuisnessConfirm = templateNewBuisness.querySelector(`${createBuisnessConfirmButton}`)
+        templateNewBuisnessConfirm.addEventListener('click', () => creatingBuisness(id),{once:true});
+    createBuisnessPopup.append(templateNewBuisness);
 }
 
 function creatingBuisness(id) {
+    balance.textContent = balance.textContent - buisnesses[id].startPrice;
     activePopup.classList.remove('popup-buisness_opened');
     const templateCompleteBuisness = document.querySelector(`${buisnessTemplate}`).content.cloneNode(true);
     templateCompleteBuisness.querySelector(`${buisnessTemplateTitleSelector}`).textContent = buisnesses[id].name;
     templateCompleteBuisness.querySelector(`${buisnessTemplateImgLinkSelector}`).src = `./images/${id}.png `;
     templateCompleteBuisness.querySelector(`${buisnessTemplateOverlaySelector}`).addEventListener('click', () => openPopupUpgrade(id));
-    templateCompleteBuisness.querySelector(`${buisnessTemplateIncomeSelector}`).textContent = `${buisnesses[id].startIncome}$ /с`;
+    templateCompleteBuisness.querySelector(`${buisnessTemplateIncomeSelector}`).textContent = `${buisnesses[id].income}$/с`;
     templateCompleteBuisness.querySelector(`${buisnessTemplateLvlSelector}`).textContent = `Lvl.${buisnesses[id].lvl}`;
     templateCompleteBuisness.querySelector(`${buisnessTemplateCardSelector}`).id = id;
     buisnesses[id].made = true;
-    
+    buisnesses[id].lvl = 1;
     buisnessesList.append(templateCompleteBuisness);
     if(buisnessesList.hasChildNodes){
         buisnessIncome.style.display = 'flex'

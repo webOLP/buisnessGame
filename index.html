@@ -25,7 +25,7 @@
             <div class="balance">
               <h3 class="balance__text info__element">Баланс</h3>
               <h3 class="balance__sum info__element">
-                <span class="balance__number">0</span>$
+                <span class="balance__number">1000</span>$
               </h3>
             </div>
             <div class="job">
@@ -64,51 +64,20 @@
         </div>
 
         <!-- Попап выбора нового бизнеса -->
+
         <div class="popup popup-buisness popup-buisness-new">
           <h1 class="popup-buisness-new__title">Выберите бизнесс</h1>
           <div class="popup-buisness-new__list"></div>
         </div>
 
-        <!-- Попап информации о выборе бизнеса -->
+        <!-- Попап информации о выбранном для покупки бизнесе -->
 
-        <div class="popup popup-buisness popup-buisness-create">
-          <img src="" alt="" class="popup-buisness-create__image" />
-          <h2 class="popup-buisness-create__title"></h2>
-          <div class="popup-buisness-create__info-box">
-            <p class="popup-buisness-create__info"></p>
-          </div>
-          <h2 class="popup-buisness-create__price"></h2>
-          <button class="popup-buisness-create__confirm">Создать</button>
-        </div>
+        <div class="popup popup-buisness popup-buisness-create"></div>
 
         <!-- Попап улучшения бизнесса -->
 
-        <div class="popup popup-buisness popup-buisness-upgrade">
-          <div class="popup-buisness-upgrade-box">
-            <img src="" alt="" class="popup-buisness-upgrade__image" />
-            <h2 class="popup-buisness-upgrade__title"></h2>
-            <div class="popup-buisness-upgrade__info-box">
-              <p class="popup-buisness-upgrade__info"></p>
-            </div>
-            <h2 class="popup-buisness-upgrade__subtitle">Доход</h2>
-            <div class="popup-buisness-upgrade__upgrade-box">
-              <p class="popup-buisness-upgrade__current-income"></p>
-              <img
-                src="./images/arrow_next.png"
-                alt=""
-                class="popup-buisness-upgrade__arrow"
-              />
-              <p class="popup-buisness-upgrade__next-income"></p>
-            </div>
-            <h2 class="popup-buisness-upgrade__upgrade-time">
-              Время улучшения:
-            </h2>
-            <h3 class="popup-buisness-upgrade__price"></h3>
-            <button type="submit" class="popup-buisness-upgrade__confirm">Улучшить</button>
-          </div>
-        </div>
+        <div class="popup popup-buisness popup-buisness-upgrade"></div>
       </div>
-
       <!-- Меню -->
 
       <div class="menu">
@@ -144,6 +113,17 @@
       </div>
     </template>
 
+    <!-- Шаблон информации о выбранном для покупки бизнесе -->
+    <template class="new-buisness">
+      <img src="" alt="" class="popup-buisness-create__image" />
+      <h2 class="popup-buisness-create__title"></h2>
+      <div class="popup-buisness-create__info-box">
+        <p class="popup-buisness-create__info"></p>
+      </div>
+      <h2 class="popup-buisness-create__price"></h2>
+      <button class="popup-buisness-create__confirm">Создать</button>
+    </template>
+
     <!-- Шаблон карточки готового бизнеса -->
     <template class="buisness-card">
       <div id="2" class="buisness__card">
@@ -151,10 +131,36 @@
         <img src="" alt="" class="buisness__card-img" />
         <div class="buisness__card-info">
           <h3 class="buisness__card-title"></h3>
-          <h2 class="buisness__card-upgrade">Ремонт:</h2>
+          <h2 class="buisness__card-upgrade">:</h2>
           <h2 class="buisness__card-lvl"></h2>
           <h2 class="buisness__card-income"></h2>
         </div>
+      </div>
+    </template>
+
+    <!-- Шаблон улучшения бизнеса -->
+    <template class="upgrade-buisness">
+      <div class="popup-buisness-upgrade-box">
+        <img src="" alt="" class="popup-buisness-upgrade__image" />
+        <h2 class="popup-buisness-upgrade__title"></h2>
+        <div class="popup-buisness-upgrade__info-box">
+          <p class="popup-buisness-upgrade__info"></p>
+        </div>
+        <h2 class="popup-buisness-upgrade__subtitle">Доход</h2>
+        <div class="popup-buisness-upgrade__upgrade-box">
+          <p class="popup-buisness-upgrade__current-income"></p>
+          <img
+            src="./images/arrow_next.png"
+            alt=""
+            class="popup-buisness-upgrade__arrow"
+          />
+          <p class="popup-buisness-upgrade__next-income"></p>
+        </div>
+        <h2 class="popup-buisness-upgrade__upgrade-time">Время улучшения:</h2>
+        <h3 class="popup-buisness-upgrade__price"></h3>
+        <button type="submit" class="popup-buisness-upgrade__confirm">
+          Улучшить
+        </button>
       </div>
     </template>
 

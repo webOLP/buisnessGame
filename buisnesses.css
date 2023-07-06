@@ -267,7 +267,9 @@
 }
 
 .buisness__card-img {
-    height: 90%;
+    height: 70%;
+    align-self: center;
+    margin: 3%;
 }
 
 .popup-buisness-upgrade {
