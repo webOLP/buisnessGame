@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./buisnesses.css" />
+    <title>Buisness</title>
+  </head>
+
+  <body class="page">
+    <div class="game">
+      <!-- Мэйн меню -->
+      <div class="current-tab">
+        <div class="main-game">
+          <div class="info">
+            <div class="balance">
+              <h3 class="balance__text info__element">Баланс</h3>
+              <h3 class="balance__sum info__element">
+                <span id='balance' class="balance__number">1000</span>$
+              </h3>
+            </div>
+            <div class="job">
+              <h3 class="job__text info__element">Работа</h3>
+              <h3 class="job__title info__element">Дворник</h3>
+            </div>
+            <div class="salary">
+              <h3 class="salary__text info__element">Зарплата</h3>
+              <h3 class="salary__sum info__element">
+                <span class="salary__number">1</span>$/клик
+              </h3>
+            </div>
+            <div class="level__exp">
+              <p class="info__level-points">
+                Опыт: <span id="cur-exp" class="points_current">0</span> /
+                <span class="points_needed">25</span>
+              </p>
+            </div>
+          </div>
+          <div class="touch-zone"></div>
+          <button class="button-work">Работать</button>
+        </div>
+
+        <!-- Бизнесс -->
+
+        <div class="buisness">
+          <h1 class="buisness__title">Бизнесы</h1>
+          <div class="buisness__dashboard">
+            <div class="buisness__income">
+              <h3 class="buisness__income-title">Доход в секунду</h3>
+              <h2 class="buisness__income-number">0</h2>
+            </div>
+            <button class="buisness__button-new">Создать новый бизнес</button>
+          </div>
+          <div class="buisness__main"></div>
+        </div>
+
+        <!-- Попап выбора нового бизнеса -->
+
+        <div class="popup popup-buisness popup-buisness-new">
+          <h1 class="popup-buisness-new__title">Выберите бизнесс</h1>
+          <div class="popup-buisness-new__list"></div>
+        </div>
+
+        <!-- Попап информации о выбранном для покупки бизнесе -->
+
+        <div class="popup popup-buisness popup-buisness-create"></div>
+
+        <!-- Попап улучшения бизнесса -->
+
+        <div class="popup popup-buisness popup-buisness-upgrade"></div>
+      </div>
+      <!-- Меню -->
+
+      <div class="menu">
+        <button disabled class="menu__button">
+          <img src="./images/menu_waiting.png" alt="" class="menu__img" />
+        </button>
+        <button id="buisness" class="menu__button menu__buisness">
+          <img src="./images/menu_buisness.png" alt="" class="menu__img" />
+        </button>
+        <button id="main-game" class="menu__button menu__current menu__main">
+          <img src="./images/menu_main.png" alt="" class="menu__img" />
+        </button>
+        <button disabled class="menu__button">
+          <img src="./images/menu_waiting.png" alt="" class="menu__img" />
+        </button>
+        <button disabled class="menu__button">
+          <img src="./images/menu_waiting.png" alt="" class="menu__img" />
+        </button>
+      </div>
+    </div>
+    <!-- Шаблоны -->
+
+    <!-- Шаблон в список выбора бизнеса -->
+    <template class="new-buisness-list">
+      <div id="" class="popup-buisness-new__buisness">
+        <img src="" alt="" class="popup-buisness-new__img" />
+        <h2 class="popup-buisness-new__element-title"></h2>
+        <div class="popup-buisness-new__price-box">
+          <h2 class="popup-buisness-new__price"></h2>
+          <h2 class="popup-buisness-new__price-sign"></h2>
+          <p class="popup-buisness-new__about"></p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Шаблон информации о выбранном для покупки бизнесе -->
+    <template class="new-buisness">
+      <img src="" alt="" class="popup-buisness-create__image" />
+      <h2 class="popup-buisness-create__title"></h2>
+      <div class="popup-buisness-create__info-box">
+        <p class="popup-buisness-create__info"></p>
+      </div>
+      <h2 class="popup-buisness-create__price"></h2>
+      <button class="popup-buisness-create__confirm">Создать</button>
+    </template>
+
+    <!-- Шаблон карточки готового бизнеса -->
+    <template class="buisness-card">
+      <div id="2" class="buisness__card">
+        <div class="buisness__card-overlay"></div>
+        <img src="" alt="" class="buisness__card-img" />
+        <div class="buisness__card-info">
+          <h3 class="buisness__card-title"></h3>
+          <h2 class="buisness__card-upgrade">:</h2>
+          <h2 class="buisness__card-lvl"></h2>
+          <h2 class="buisness__card-income"></h2>
+        </div>
+      </div>
+    </template>
+
+    <!-- Шаблон улучшения бизнеса -->
+    <template class="upgrade-buisness">
+      <div class="popup-buisness-upgrade-box">
+        <img src="" alt="" class="popup-buisness-upgrade__image" />
+        <h2 class="popup-buisness-upgrade__title"></h2>
+        <div class="popup-buisness-upgrade__info-box">
+          <p class="popup-buisness-upgrade__info"></p>
+        </div>
+        <h2 class="popup-buisness-upgrade__subtitle">Доход</h2>
+        <div class="popup-buisness-upgrade__upgrade-box">
+          <p class="popup-buisness-upgrade__current-income"></p>
+          <img
+            src="./images/arrow_next.png"
+            alt=""
+            class="popup-buisness-upgrade__arrow"
+          />
+          <p class="popup-buisness-upgrade__next-income"></p>
+        </div>
+        <h2 class="popup-buisness-upgrade__upgrade-time">Время улучшения:</h2>
+        <h3 class="popup-buisness-upgrade__price"></h3>
+        <button type="submit" class="popup-buisness-upgrade__confirm">
+          Улучшить
+        </button>
+      </div>
+    </template>
+
+    <!-- Скрипты -->
+    <script type="module" src="./js.js"></script>
+    <script type="module" src="./menu.js"></script>
+    <script type="module" src="./buisnessesInfo.js"></script>
+    <script type="module" src="./buisness.js"></script>
+    <script type="module" src="./balance.js"></script>
+    <script type="module" src="./localInfo.js"></script>
+  </body>
+</html>
